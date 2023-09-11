@@ -6,7 +6,7 @@
   Chrome extension to easily copy a page's HTML to the clipboard.
 </h3>
 <p align="center">
-  <a href="[asdfasfasdasfasfd](https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf)" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Install-Chome_Web_Store-blue" alt="Install on Chrome Web Store" /></a>&nbsp;
+  <a href="[https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf](https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf)" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Install-Chome_Web_Store-blue" alt="Install on Chrome Web Store" /></a>&nbsp;
   <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
