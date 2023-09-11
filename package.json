@@ -6,9 +6,7 @@
   "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
   "homepage": "https://justinmahar.github.io/copy-html-chrome/",
   "scripts": {
-    "build": "rm -rf ./src/_js && tsc",
-    "preship": "npm run build && git add dist && git diff-index --quiet HEAD || git commit -m \"Build, version, and publish.\"",
-    "ship": "echo Ship command not implemented yet!"
+    "build": "rm -rf ./src/_js && tsc && rm -rf dist && mkdir dist && mkdir dist/build && cp manifest.json dist/build && cp -R images dist/build && mkdir dist/build/src && cp -R src ./dist/build && zip -r dist/build.zip dist/build/*"
   },
   "license": "MIT",
   "repository": {
