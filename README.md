@@ -10,6 +10,8 @@
   <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
+[![Alt text](screenshots/screenshot.png)](https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf)
+
 ## Install on Chrome Web Store
 
 Install the plugin at the **[Chrome Web Store](https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf)**.
@@ -22,8 +24,6 @@ This extension allows the user to easily copy the page's HTML element to the cli
 2. Press the shortcut `Ctrl`+`Shift`+`Alt`+`H`.
 3. HTML is copied to the clipboard
 
-
-![Alt text](screenshots/screenshot.png)
 
 
 ## Donate 
