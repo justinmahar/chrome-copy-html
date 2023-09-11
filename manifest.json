@@ -6,15 +6,20 @@
   "content_scripts": [
     {
       "js": ["src/_js/content.js"],
-      "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/webstore/*"
-      ]
+      "matches": ["<all_urls>"]
     }
   ],
   "action": {
     "default_popup": "src/popup.html",
     "default_icon": "images/icon-512.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "Command+B"
+      }
+    }
   },
   "icons": {
     "16": "images/icon-16.png",
