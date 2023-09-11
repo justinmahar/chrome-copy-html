@@ -77,10 +77,10 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/react-kindling/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/copy-html-chrome/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/react-kindling/stargazers): [👉⭐](https://github.com/justinmahar/react-kindling/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/copy-html-chrome/stargazers): [👉⭐](https://github.com/justinmahar/copy-html-chrome/stargazers)
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/react-kindling/?path=/story/license--page).
+See [LICENSE.md](https://raw.githubusercontent.com/justinmahar/copy-html-chrome/master/LICENSE.md).
