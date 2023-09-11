@@ -13,14 +13,6 @@
     "default_popup": "src/popup.html",
     "default_icon": "images/icon-512.png"
   },
-  "commands": {
-    "_execute_action": {
-      "suggested_key": {
-        "default": "Ctrl+B",
-        "mac": "Command+B"
-      }
-    }
-  },
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
