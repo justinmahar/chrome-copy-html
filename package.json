@@ -1,0 +1,32 @@
+{
+  "name": "copy-html-chrome",
+  "private": true,
+  "version": "0.0.1",
+  "author": "Justin Mahar <contact@justinmahar.com>",
+  "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
+  "homepage": "https://justinmahar.github.io/copy-html-chrome/",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc",
+    "preship": "npm run build && git add dist && git diff-index --quiet HEAD || git commit -m \"Build, version, and publish.\"",
+    "ship": "echo Ship command not implemented yet!"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinmahar/copy-html-chrome.git"
+  },
+  "bugs": {
+    "url": "https://github.com/justinmahar/copy-html-chrome/issues"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.2",
+    "typescript": "^4.9.4"
+  }
+}
