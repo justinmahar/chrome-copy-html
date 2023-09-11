@@ -60,5 +60,5 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": ["src", "types.d.ts"],
-  "exclude": ["node_modules", "bin", "**/__*"]
+  "exclude": ["node_modules", "src/_js", "**/__*"]
 }
