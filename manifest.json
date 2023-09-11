@@ -1,6 +1,6 @@
 {
   "name": "Copy HTML",
-  "description": "Chrome extension for copying HTML",
+  "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
   "version": "0.1",
   "manifest_version": 3,
   "action": {
