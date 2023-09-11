@@ -1,27 +1,28 @@
 "use strict";
-/** Show a toast message in the upper right corner */
-const showToast = (message) => {
+/** Show a notification in the upper right corner */
+const showNotification = (message) => {
     const bodyElements = document.getElementsByTagName("body");
     if (bodyElements.length > 0) {
         const bodyEl = bodyElements[0];
-        const toast = document.createElement("div");
-        toast.setAttribute("style", "background: white; color: black; padding: 5px 10px 5px 10px; position: fixed; top: 5px; right: 5px; border: solid 1px #aaaaaa; border-radius: 5px; font-size: 20px; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); z-index: 99999;");
-        toast.textContent = message;
-        bodyEl.appendChild(toast);
+        const notification = document.createElement("div");
+        notification.setAttribute("style", "background: white; color: black; padding: 5px 10px 5px 10px; position: fixed; top: 5px; right: 5px; border: solid 1px #aaaaaa; border-radius: 5px; font-size: 20px; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); z-index: 99999;");
+        notification.textContent = message;
+        bodyEl.appendChild(notification);
+        // Remove notification after a moment
         setTimeout(() => {
-            bodyEl.removeChild(toast);
+            bodyEl.removeChild(notification);
         }, 2000);
     }
 };
-/** Copy the provided text to the clipboard, and show a toast message with the results. */
+/** Copy the provided text to the clipboard, and show a notification with the results. */
 const copy = (text) => {
     navigator.clipboard
         .writeText(text)
         .then(() => {
-        showToast(`📋 HTML Copied!`);
+        showNotification(`📋 HTML Copied!`);
     })
         .catch((e) => {
-        showToast(`❌ Failed to copy`);
+        showNotification(`❌ Failed to copy`);
         console.error(`❌ Failed to copy:`, e);
     });
 };
