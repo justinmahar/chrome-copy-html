@@ -42,7 +42,6 @@ If this project helped you, please consider buying me a coffee. Your support is 
 - [Development](#development)
   - [Install Dependencies](#install-dependencies)
   - [Building](#building)
-- [TypeScript](#typescript)
 - [Contributing](#contributing)
 - [⭐ Found It Helpful? Star It!](#-found-it-helpful-star-it)
 - [License](#license)
@@ -69,10 +68,6 @@ npm run build
 ```
 
 The project will be built and zipped to `/dist`.
-
-## TypeScript
-
-Type definitions have been included for [TypeScript](https://www.typescriptlang.org/) support.
 
 ## Contributing
 
