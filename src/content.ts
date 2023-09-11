@@ -1,100 +1,48 @@
-const showToast = (message: string) => {
+/** Show a notification in the upper right corner */
+const showNotification = (message: string) => {
   const bodyElements = document.getElementsByTagName("body");
   if (bodyElements.length > 0) {
     const bodyEl = bodyElements[0];
-    const toast = document.createElement("div");
-    // Use the same styling as the publish information in an article's header
-    toast.setAttribute(
+    const notification = document.createElement("div");
+    notification.setAttribute(
       "style",
       "background: white; color: black; padding: 5px 10px 5px 10px; position: fixed; top: 5px; right: 5px; border: solid 1px #aaaaaa; border-radius: 5px; font-size: 20px; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); z-index: 99999;"
     );
-    toast.textContent = message;
-    bodyEl.appendChild(toast);
+    notification.textContent = message;
+    bodyEl.appendChild(notification);
+    // Remove notification after a moment
     setTimeout(() => {
-      bodyEl.removeChild(toast);
+      bodyEl.removeChild(notification);
     }, 2000);
   }
 };
 
+/** Copy the provided text to the clipboard, and show a notification with the results. */
 const copy = (text: string) => {
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      showToast(`📋 HTML Copied!`);
+      showNotification(`📋 HTML Copied!`);
     })
     .catch((e) => {
-      showToast(`❌ Failed to copy`);
+      showNotification(`❌ Failed to copy`);
       console.error(`❌ Failed to copy:`, e);
     });
 };
 
+/** Copy the document HTML to the clipboard. */
 const copyHtml = () => {
   const htmlElements = document.getElementsByTagName("html");
   if (htmlElements.length > 0) {
     const htmlElement = htmlElements[0];
-    console.log(htmlElement.outerHTML);
     copy(htmlElement.outerHTML);
   }
 };
 
-let ctrlDown = false;
-let shiftDown = false;
-let altDown = false;
-let metaDown = false;
+/** Shortcut listener */
 document.addEventListener("keydown", (e: KeyboardEvent) => {
-  console.log(e.key);
-  if (e.key === "Control") {
-    ctrlDown = true;
-  }
-  if (e.key === "Shift") {
-    shiftDown = true;
-  }
-  if (e.key === "Alt") {
-    altDown = true;
-  }
-  if (e.key === "Meta") {
-    metaDown = true;
-  }
-  if (ctrlDown && shiftDown && altDown && !metaDown && e.code === "KeyH") {
+  /** Ctrl+Shift+Alt+H shortcut */
+  if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === "KeyH") {
     copyHtml();
   }
 });
-document.addEventListener("keyup", (e: KeyboardEvent) => {
-  if (e.key === "Control") {
-    ctrlDown = false;
-  }
-  if (e.key === "Shift") {
-    shiftDown = false;
-  }
-  if (e.key === "Alt") {
-    altDown = false;
-  }
-  if (e.key === "Meta") {
-    metaDown = false;
-  }
-});
-
-const article = document.querySelector("article");
-
-// `document.querySelector` may return null if the selector doesn't match anything.
-if (article) {
-  const text = article.textContent;
-  if (typeof text === "string") {
-    const wordMatchRegExp = /[^\s]+/g; // Regular expression
-    const words = text.matchAll(wordMatchRegExp);
-    // matchAll returns an iterator, convert to array to get word count
-    const wordCount = [...words].length;
-    const readingTime = Math.round(wordCount / 200);
-    const badge = document.createElement("p");
-    // Use the same styling as the publish information in an article's header
-    badge.classList.add("color-secondary-text", "type--caption");
-    badge.textContent = `⏱️ ${readingTime} min read`;
-
-    // Support for API reference docs
-    const heading = article.querySelector("h1");
-    // Support for article docs with date
-    const date = article.querySelector("time")?.parentNode;
-
-    ((date ?? heading) as any).insertAdjacentElement("afterend", badge);
-  }
-}
