@@ -5,9 +5,8 @@
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
   "homepage": "https://justinmahar.github.io/copy-html-chrome/",
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
+    "build": "rm -rf ./src/_js && tsc",
     "preship": "npm run build && git add dist && git diff-index --quiet HEAD || git commit -m \"Build, version, and publish.\"",
     "ship": "echo Ship command not implemented yet!"
   },
