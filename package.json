@@ -1,7 +1,7 @@
 {
   "name": "chrome-copy-html",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.1.0",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
   "homepage": "https://justinmahar.github.io/chrome-copy-html/",
