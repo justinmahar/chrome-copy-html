@@ -3,7 +3,7 @@
   📃 Copy HTML
 </h2>
 <h3 align="center">
-  Chrome extension to easily copy a page's HTML to the clipboard.
+  Chrome extension to easily copy any page's HTML to the clipboard.
 </h3>
 <p align="center">
   <a href="https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Install-Chome_Web_Store-blue" alt="Install on Chrome Web Store" /></a>&nbsp;
@@ -18,7 +18,7 @@ Install the plugin at the **[Chrome Web Store](https://chrome.google.com/webstor
 
 ## Overview
 
-This Chrome extension allows the user to easily copy the page's HTML element to the clipboard with the press of a button or keyboard shortcut.
+This Chrome extension allows the user to easily copy any page's HTML element to the clipboard with the press of a button or keyboard shortcut.
 
 Button method:
 1. Click the extension icon
