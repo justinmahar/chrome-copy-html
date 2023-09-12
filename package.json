@@ -1,20 +1,20 @@
 {
-  "name": "copy-html-chrome",
+  "name": "chrome-copy-html",
   "private": true,
   "version": "0.0.1",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "📃 Chrome extension to easily copy a page's HTML to the clipboard.",
-  "homepage": "https://justinmahar.github.io/copy-html-chrome/",
+  "homepage": "https://justinmahar.github.io/chrome-copy-html/",
   "scripts": {
     "build": "rm -rf ./src/_js && tsc && rm -rf dist && mkdir dist && mkdir dist/build && cp manifest.json dist/build && cp -R images dist/build && mkdir dist/build/src && cp -R src ./dist/build && zip -r dist/build.zip dist/build/*"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/copy-html-chrome.git"
+    "url": "git+https://github.com/justinmahar/chrome-copy-html.git"
   },
   "bugs": {
-    "url": "https://github.com/justinmahar/copy-html-chrome/issues"
+    "url": "https://github.com/justinmahar/chrome-copy-html/issues"
   },
   "keywords": [],
   "devDependencies": {

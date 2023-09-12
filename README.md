@@ -81,10 +81,10 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/copy-html-chrome/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/chrome-copy-html/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/copy-html-chrome/stargazers): [👉⭐](https://github.com/justinmahar/copy-html-chrome/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/chrome-copy-html/stargazers): [👉⭐](https://github.com/justinmahar/chrome-copy-html/stargazers)
 
 ## License
 
-See [LICENSE.md](https://raw.githubusercontent.com/justinmahar/copy-html-chrome/master/LICENSE.md).
+See [LICENSE.md](https://raw.githubusercontent.com/justinmahar/chrome-copy-html/master/LICENSE.md).
