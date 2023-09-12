@@ -1,5 +1,4 @@
 "use strict";
-console.log('Script loaded!');
 const button = document.getElementById('copy-html-button');
 let clickDisabled = false;
 if (button) {
