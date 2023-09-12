@@ -10,7 +10,7 @@
     }
   ],
   "action": {
-    "default_popup": "src/popup.html",
+    "default_popup": "src/popup/popup.html",
     "default_icon": "images/icon-512.png"
   },
   "icons": {

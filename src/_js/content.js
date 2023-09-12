@@ -14,24 +14,31 @@ const showNotification = (message) => {
         }, 2000);
     }
 };
+const successMessage = `✅ HTML Copied!`;
+const failureMessage = `❌ Failed to copy`;
 /** Copy the provided text to the clipboard, and show a notification with the results. */
-const copy = (text) => {
-    navigator.clipboard
-        .writeText(text)
-        .then(() => {
-        showNotification(`✅ HTML Copied!`);
-    })
-        .catch((e) => {
-        showNotification(`❌ Failed to copy`);
-        console.error(`❌ Failed to copy:`, e);
-    });
+const copy = (text, legacy = false) => {
+    if (!legacy) {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+            showNotification(successMessage);
+        })
+            .catch((e) => {
+            showNotification(failureMessage);
+            console.error(failureMessage, e);
+        });
+    }
+    else {
+        legacyCopy(text);
+    }
 };
 /** Copy the document HTML to the clipboard. */
-const copyHtml = () => {
+const copyHtml = (legacy = false) => {
     const htmlElements = document.getElementsByTagName('html');
     if (htmlElements.length > 0) {
         const htmlElement = htmlElements[0];
-        copy(htmlElement.outerHTML);
+        copy(htmlElement.outerHTML, legacy);
     }
 };
 /** Shortcut listener */
@@ -39,5 +46,24 @@ document.addEventListener('keydown', (e) => {
     /** Ctrl+Shift+Alt+H shortcut */
     if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === 'KeyH') {
         copyHtml();
+    }
+});
+const legacyCopy = (text) => {
+    showNotification('⏳ Copying...');
+    setTimeout(() => {
+        const textArea = document.createElement('textarea');
+        textArea.setAttribute('style', 'position: fixed; top: 5px; right: 5px; z-index: -99999; opacity: 0;');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showNotification(successMessage);
+    }, 50);
+};
+chrome.runtime.onMessage.addListener(function (payload, sender) {
+    if (payload.message === 'copy-html-action') {
+        copyHtml(true);
     }
 });
