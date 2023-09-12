@@ -18,7 +18,7 @@ Install the plugin at the **[Chrome Web Store](https://chrome.google.com/webstor
 
 ## Overview
 
-This Chrome extension allows the user to easily copy the page's HTML element to the clipboard by with the press of a button or keyboard shortcut.
+This Chrome extension allows the user to easily copy the page's HTML element to the clipboard with the press of a button or keyboard shortcut.
 
 Keyboard shortcut method (fastest):
 1. Click the page
