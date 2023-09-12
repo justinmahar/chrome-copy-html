@@ -17,31 +17,36 @@ const showNotification = (message: string) => {
   }
 };
 
-const successMessage = `✅ HTML Copied!`;
-const failureMessage = `❌ Failed to copy`;
 /** Copy the provided text to the clipboard, and show a notification with the results. */
-const copy = (text: string, legacy = false) => {
-  if (!legacy) {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        showNotification(successMessage);
-      })
-      .catch((e) => {
-        showNotification(failureMessage);
-        console.error(failureMessage, e);
-      });
-  } else {
-    legacyCopy(text);
-  }
+const copy = (text: string) => {
+  const successMessage = `✅ HTML Copied!`;
+  const failureMessage = `❌ Failed to copy`;
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      showNotification(successMessage);
+    })
+    .catch((e) => {
+      showNotification(failureMessage);
+      console.error(failureMessage, e);
+    });
 };
 
-/** Copy the document HTML to the clipboard. */
-const copyHtml = (legacy = false) => {
+/** Get the HTML as a string. */
+const getHtml = (): string | undefined => {
   const htmlElements = document.getElementsByTagName('html');
   if (htmlElements.length > 0) {
     const htmlElement = htmlElements[0];
-    copy(htmlElement.outerHTML, legacy);
+    return htmlElement.outerHTML;
+  }
+  return undefined;
+};
+
+/** Copy the document HTML to the clipboard. */
+const copyHtml = () => {
+  const html = getHtml();
+  if (html) {
+    copy(html);
   }
 };
 
@@ -53,23 +58,12 @@ document.addEventListener('keydown', (e: KeyboardEvent) => {
   }
 });
 
-const legacyCopy = (text: string) => {
-  showNotification('⏳ Copying...');
-  setTimeout(() => {
-    const textArea = document.createElement('textarea');
-    textArea.setAttribute('style', 'position: fixed; top: 5px; right: 5px; z-index: -99999; opacity: 0;');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textArea);
-    showNotification(successMessage);
-  }, 50);
-};
-
-chrome.runtime.onMessage.addListener(function (payload: any, sender: chrome.runtime.MessageSender) {
+chrome.runtime.onMessage.addListener(function (
+  payload: any,
+  sender: chrome.runtime.MessageSender,
+  sendResponse: (response: any) => void,
+) {
   if (payload.message === 'copy-html-action') {
-    copyHtml(true);
+    sendResponse(getHtml());
   }
 });

@@ -14,31 +14,34 @@ const showNotification = (message) => {
         }, 2000);
     }
 };
-const successMessage = `✅ HTML Copied!`;
-const failureMessage = `❌ Failed to copy`;
 /** Copy the provided text to the clipboard, and show a notification with the results. */
-const copy = (text, legacy = false) => {
-    if (!legacy) {
-        navigator.clipboard
-            .writeText(text)
-            .then(() => {
-            showNotification(successMessage);
-        })
-            .catch((e) => {
-            showNotification(failureMessage);
-            console.error(failureMessage, e);
-        });
-    }
-    else {
-        legacyCopy(text);
-    }
+const copy = (text) => {
+    const successMessage = `✅ HTML Copied!`;
+    const failureMessage = `❌ Failed to copy`;
+    navigator.clipboard
+        .writeText(text)
+        .then(() => {
+        showNotification(successMessage);
+    })
+        .catch((e) => {
+        showNotification(failureMessage);
+        console.error(failureMessage, e);
+    });
 };
-/** Copy the document HTML to the clipboard. */
-const copyHtml = (legacy = false) => {
+/** Get the HTML as a string. */
+const getHtml = () => {
     const htmlElements = document.getElementsByTagName('html');
     if (htmlElements.length > 0) {
         const htmlElement = htmlElements[0];
-        copy(htmlElement.outerHTML, legacy);
+        return htmlElement.outerHTML;
+    }
+    return undefined;
+};
+/** Copy the document HTML to the clipboard. */
+const copyHtml = () => {
+    const html = getHtml();
+    if (html) {
+        copy(html);
     }
 };
 /** Shortcut listener */
@@ -48,22 +51,8 @@ document.addEventListener('keydown', (e) => {
         copyHtml();
     }
 });
-const legacyCopy = (text) => {
-    showNotification('⏳ Copying...');
-    setTimeout(() => {
-        const textArea = document.createElement('textarea');
-        textArea.setAttribute('style', 'position: fixed; top: 5px; right: 5px; z-index: -99999; opacity: 0;');
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        showNotification(successMessage);
-    }, 50);
-};
-chrome.runtime.onMessage.addListener(function (payload, sender) {
+chrome.runtime.onMessage.addListener(function (payload, sender, sendResponse) {
     if (payload.message === 'copy-html-action') {
-        copyHtml(true);
+        sendResponse(getHtml());
     }
 });
