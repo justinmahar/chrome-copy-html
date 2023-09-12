@@ -47,4 +47,8 @@ body {
   border: solid 1px #cccccc;
   border-bottom: solid 3px #999999;
   border-radius: 4px;
+  min-width: 12px;
+  padding-left: 3px;
+  padding-right: 3px;
+  text-align: center;
 }
