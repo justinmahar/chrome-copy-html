@@ -53,7 +53,7 @@ const copyHtml = () => {
 /** Shortcut listener */
 document.addEventListener('keydown', (e: KeyboardEvent) => {
   /** Ctrl+Shift+Alt+H shortcut */
-  if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === 'KeyH') {
+  if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === 'KeyC') {
     copyHtml();
   }
 });
