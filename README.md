@@ -28,7 +28,7 @@ Button method:
 
 Keyboard shortcut method:
 1. Click the page
-2. Press the keyboard shortcut: `Ctrl`+`Shift`+`Alt`+`H`
+2. Press the keyboard shortcut: `Ctrl`+`Shift`+`Alt`+`C`
 3. HTML is copied to clipboard
 
 ## Donate 
