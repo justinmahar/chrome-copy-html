@@ -7,7 +7,7 @@
 </h3>
 <p align="center">
   <a href="https://chrome.google.com/webstore/detail/copy-html/indfogjkdbmkihaohndcnkoaheopbhjf" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Install-Chome_Web_Store-blue" alt="Install on Chrome Web Store" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/chrome-copy-html/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/chrome-copy-html/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
+  <a href="https://github.com/justinmahar/chrome-copy-html/actions?query=workflow%3ABuild" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/chrome-copy-html/workflows/Build/badge.svg" alt="Build Status" /></a>&nbsp;
   <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 
