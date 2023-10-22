@@ -1,7 +1,7 @@
 {
   "name": "Copy HTML",
   "description": "Easily copy any page's HTML element to the clipboard with the press of a button or keyboard shortcut.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "manifest_version": 3,
   "content_scripts": [
     {
