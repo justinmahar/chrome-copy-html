@@ -18,14 +18,20 @@ const showNotification = (message) => {
 const copy = (text) => {
     const successMessage = `✅ HTML Copied!`;
     const failureMessage = `❌ Failed to copy`;
-    navigator.clipboard
-        .writeText(text)
-        .then(() => {
-        showNotification(successMessage);
-    })
-        .catch((e) => {
-        showNotification(failureMessage);
-        console.error(failureMessage, e);
+    chrome.storage.sync.get({ showCopyNotification: true }, (items) => {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+            if (items.showCopyNotification) {
+                showNotification(successMessage);
+            }
+        })
+            .catch((e) => {
+            if (items.showCopyNotification) {
+                showNotification(failureMessage);
+            }
+            console.error(failureMessage, e);
+        });
     });
 };
 /** Get the HTML as a string. */
@@ -44,15 +50,11 @@ const copyHtml = () => {
         copy(html);
     }
 };
-/** Shortcut listener */
-document.addEventListener('keydown', (e) => {
-    /** Ctrl+Shift+Alt+H shortcut */
-    if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === 'KeyC') {
-        copyHtml();
-    }
-});
 chrome.runtime.onMessage.addListener(function (payload, sender, sendResponse) {
-    if (payload.message === 'copy-html-action') {
+    if (payload.message === 'copy-html-popup-button') {
         sendResponse(getHtml());
+    }
+    if (payload.message === 'copy-html-shortcut') {
+        copyHtml();
     }
 });

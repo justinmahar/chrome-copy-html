@@ -21,15 +21,21 @@ const showNotification = (message: string) => {
 const copy = (text: string) => {
   const successMessage = `✅ HTML Copied!`;
   const failureMessage = `❌ Failed to copy`;
-  navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      showNotification(successMessage);
-    })
-    .catch((e) => {
-      showNotification(failureMessage);
-      console.error(failureMessage, e);
-    });
+  chrome.storage.sync.get({ showCopyNotification: true }, (items) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        if (items.showCopyNotification) {
+          showNotification(successMessage);
+        }
+      })
+      .catch((e) => {
+        if (items.showCopyNotification) {
+          showNotification(failureMessage);
+        }
+        console.error(failureMessage, e);
+      });
+  });
 };
 
 /** Get the HTML as a string. */
@@ -50,20 +56,15 @@ const copyHtml = () => {
   }
 };
 
-/** Shortcut listener */
-document.addEventListener('keydown', (e: KeyboardEvent) => {
-  /** Ctrl+Shift+Alt+H shortcut */
-  if (e.ctrlKey && e.shiftKey && e.altKey && !e.metaKey && e.code === 'KeyC') {
-    copyHtml();
-  }
-});
-
 chrome.runtime.onMessage.addListener(function (
   payload: any,
   sender: chrome.runtime.MessageSender,
   sendResponse: (response: any) => void,
 ) {
-  if (payload.message === 'copy-html-action') {
+  if (payload.message === 'copy-html-popup-button') {
     sendResponse(getHtml());
+  }
+  if (payload.message === 'copy-html-shortcut') {
+    copyHtml();
   }
 });
