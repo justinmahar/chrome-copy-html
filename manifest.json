@@ -9,7 +9,7 @@
         "default": "Ctrl+Shift+C",
         "mac": "Ctrl+Shift+C"
       },
-      "description": "Copy the page's HTML element to the clipboard."
+      "description": "Copy the page's HTML element to the clipboard"
     }
   },
   "background": {
