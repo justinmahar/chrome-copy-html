@@ -9,7 +9,7 @@ const saveOptions = () => {
     // Update status to let user know options were saved.
     const status = document.getElementById('status');
     if (status) {
-      status.textContent = '✅ Options saved.';
+      status.textContent = '✅ Options saved';
       setTimeout(() => {
         status.textContent = '';
       }, 2000);
