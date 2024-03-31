@@ -27,7 +27,7 @@ Button method:
 3. HTML is copied to clipboard
 
 Keyboard shortcut method:
-1. Open Manage Extensions › Keyboard Shortcuts
+1. Open Manage Extensions › Keyboard Shortcuts and configure a shortcut
 2. Open page and press the keyboard shortcut
 3. HTML is copied to clipboard
 
