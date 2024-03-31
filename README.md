@@ -27,8 +27,8 @@ Button method:
 3. HTML is copied to clipboard
 
 Keyboard shortcut method:
-1. Click the page
-2. Press the keyboard shortcut: `Ctrl`+`Shift`+`C`
+1. Open Manage Extensions › Keyboard Shortcuts
+2. Open page and press the keyboard shortcut
 3. HTML is copied to clipboard
 
 ## Donate 
