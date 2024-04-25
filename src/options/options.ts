@@ -1,11 +1,9 @@
 // Saves options to chrome.storage
 const saveOptions = () => {
-  const showCopyNotificationCheckbox = document.getElementById('show-copy-notification-checkbox') as
-    | HTMLInputElement
-    | undefined;
-  const showCopyNotification = !!showCopyNotificationCheckbox?.checked;
+  const autoCopyCheckbox = document.getElementById('auto-copy-checkbox') as HTMLInputElement | undefined;
+  const autoCopy = !!autoCopyCheckbox?.checked;
 
-  chrome.storage.sync.set({ showCopyNotification }, () => {
+  chrome.storage.sync.set({ autoCopy }, () => {
     // Update status to let user know options were saved.
     const status = document.getElementById('status');
     if (status) {
@@ -20,12 +18,10 @@ const saveOptions = () => {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 const restoreOptions = () => {
-  chrome.storage.sync.get({ showCopyNotification: true }, (items) => {
-    const showCopyNotificationCheckbox = document.getElementById('show-copy-notification-checkbox') as
-      | HTMLInputElement
-      | undefined;
-    if (showCopyNotificationCheckbox) {
-      showCopyNotificationCheckbox.checked = items.showCopyNotification;
+  chrome.storage.sync.get({ autoCopy: true }, (items) => {
+    const autoCopyCheckbox = document.getElementById('auto-copy-checkbox') as HTMLInputElement | undefined;
+    if (autoCopyCheckbox) {
+      autoCopyCheckbox.checked = items.autoCopy;
     }
   });
 };

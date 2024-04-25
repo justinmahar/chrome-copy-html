@@ -10,14 +10,21 @@
   <body>
     <h1>Copy HTML Options</h1>
     <div style="display: flex; flex-direction: column; gap: 10px">
-      <div>
-        <input type="checkbox" id="show-copy-notification-checkbox" name="show-notification-checkbox" checked />
-        <label for="show-copy-notification-checkbox">Show copy notification in upper-right corner</label>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 5px">
+        <input type="checkbox" id="auto-copy-checkbox" name="show-notification-checkbox" checked />
+        <label for="auto-copy-checkbox">Automatically copy HTML to clipboard when opening extension popup</label>
       </div>
-      <div>To configure a shortcut, open Manage Extensions › Keyboard Shortcuts</div>
       <div id="status"></div>
       <div>
         <button id="save-button">Save</button>
+      </div>
+    </div>
+    <div style="margin-top: 20px; margin-bottom: 20px">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 5px">
+        <div style="font-size: 400%">⌨️</div>
+        <div>
+          To configure a shortcut, open <span style="font-style: italic">Manage Extensions › Keyboard Shortcuts</span>
+        </div>
       </div>
     </div>
     <div style="text-align: center; margin-top: 40px">
